@@ -1,6 +1,8 @@
-# TikTok Video Intelligence Extractor
+# SceneScribe
 
-A Python-based AI pipeline that analyzes TikTok videos, transcribes speech, describes visual scenes, and exports structured JSON metadata for LLM-based creative intelligence applications.
+A Python-based AI pipeline that analyzes videos (for example TikTok), transcribes speech, describes visual scenes, and exports structured JSON metadata for different applications.
+
+Note this project is an attempt at vibe coding using the new Claude Sonnet 4.5. It appears to work well (hence I've uploaded it to GitHub), but be careful.
 
 ## 🎯 Features
 

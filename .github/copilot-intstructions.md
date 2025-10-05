@@ -12,32 +12,10 @@ The goal is **accuracy, modularity, and reproducibility** — every module shoul
 ---
 
 ## 🧰 Project Context
-This project already has a specification file named `PROJECT.md`.  
+This project already has a explaination and specification shown in `README.md`
 Copilot should refer to that document as the *single source of truth* for structure and functionality.
 
 The project must be fully **open-source**, using **publicly available models and libraries** only.
-
----
-
-## 🧱 Folder Structure to Follow
-tiktok_ai_extractor/
-├── data/videos/ # Input .mp4 files
-├── outputs/json/ # Output JSONs
-├── outputs/frames/ # Extracted keyframes
-├── src/
-│ ├── main.py # CLI entrypoint
-│ ├── video_preprocess.py # ffmpeg + PySceneDetect utilities
-│ ├── asr.py # WhisperX transcription
-│ ├── vision.py # BLIP-2 captioning + GroundingDINO
-│ ├── ocr.py # OCR integration
-│ ├── fusion.py # Merge results into JSON
-│ └── utils.py # Helpers
-├── requirements.txt
-├── Dockerfile
-└── README.md
-
-
----
 
 ## 🧩 Coding Standards
 
@@ -78,46 +56,9 @@ tiktok_ai_extractor/
 6. **Comment your reasoning only in docstrings** — avoid verbose inline comments.
 7. **Optimize for readability**, not cleverness.
 
----
-
-## 🧩 Expected Modules Overview
-
-| Module | Responsibility |
-|---------|----------------|
-| `video_preprocess.py` | Normalize video, detect scenes, extract keyframes |
-| `asr.py` | Transcribe audio with WhisperX, detect language |
-| `vision.py` | Generate image captions, optionally detect objects |
-| `ocr.py` | Extract text from keyframes using Tesseract/PaddleOCR |
-| `fusion.py` | Merge ASR + visual + OCR data into final JSON |
-| `utils.py` | Logging, file handling, GPU utilities |
-| `main.py` | Orchestrate the full pipeline via CLI or batch mode |
-
----
-
-## 🧠 Output Example
-All outputs must follow the JSON format provided in `PROJECT_DESCRIPTION.md`.  
-Ensure that timestamps, keyframe references, and language codes are preserved.
-
----
-
 ## 🧩 Development Goals
 - Modular and scalable architecture
 - Full GPU utilization (WhisperX + BLIP-2)
 - Reliable JSON output per video
 - Multi-language support (Norwegian + English)
 - Ready for later integration with LLM-based creative systems
-
----
-
-## ✅ Done Definition
-A minimal version is **“done”** when:
-- The pipeline can process at least one `.mp4` file end-to-end.
-- JSON output is successfully created in `/outputs/json/`.
-- No manual path configuration is required.
-- All modules run with GPU acceleration (if available).
-
----
-
-**Author:** Internal AI Tools Project  
-**Date:** 2025-10-04  
-**Version:** 1.0

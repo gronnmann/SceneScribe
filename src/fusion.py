@@ -1,7 +1,7 @@
 """Data fusion: merge ASR, vision, and OCR into structured JSON output."""
 
 import json
-from datetime import datetime
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Optional
 
@@ -123,7 +123,7 @@ def create_video_metadata(
     
     # Build processing metadata
     processing = ProcessingMetadata(
-        created_at=datetime.utcnow().isoformat() + "Z",
+        created_at=datetime.now(UTC).isoformat().replace('+00:00', 'Z'),
         models=models_used,
         version="0.1.0",
     )
