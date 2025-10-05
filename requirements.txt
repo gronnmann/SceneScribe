@@ -1,0 +1,38 @@
+# Core dependencies (CUDA 12.1+ compatible)
+torch>=2.0.0
+torchaudio>=2.0.0
+torchvision>=0.15.0
+
+# Video processing
+opencv-python>=4.8.0
+scenedetect[opencv]>=0.6.0
+ffmpeg-python>=0.2.0
+
+# Audio & ASR
+whisperx>=3.1.1
+faster-whisper>=0.9.0
+
+# Vision & Image Processing
+transformers>=4.35.0
+accelerate>=0.24.0
+Pillow>=10.0.0
+sentencepiece>=0.1.99
+
+# OCR
+pytesseract>=0.3.10
+
+# Data handling & validation
+pydantic>=2.5.0
+pandas>=2.0.0
+
+# CLI & Logging
+click>=8.1.0
+loguru>=0.7.0
+
+# Utilities
+requests>=2.31.0
+tqdm>=4.66.0
+
+# Note: For Windows users with CUDA, you may need to install cuDNN separately:
+# Download from: https://developer.nvidia.com/cudnn
+# Or install via conda: conda install -c conda-forge cudnn

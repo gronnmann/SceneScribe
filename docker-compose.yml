@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  video-transcriber:
+    build: .
+    image: video-ad-transcriber:latest
+    container_name: video_ad_transcriber
+    
+    # GPU support
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    
+    # Volumes
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./src:/app/src  # For development
+    
+    # Environment
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONUNBUFFERED=1
+    
+    # Command (override as needed)
+    command: >
+      python3 src/main.py 
+      --input data/videos 
+      --output outputs/json
+      --frames-dir outputs/frames
+      --log-level INFO
+    
+    # Runtime
+    runtime: nvidia
+    
+    # Keep container running for development
+    # stdin_open: true
+    # tty: true
